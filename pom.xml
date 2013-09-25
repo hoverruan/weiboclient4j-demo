@@ -58,9 +58,9 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>org.eclipse.jetty</groupId>
+									<groupId>org.mortbay.jetty</groupId>
 									<artifactId>jetty-runner</artifactId>
-									<version>9.0.5.v20130815</version>
+									<version>7.4.5.v20110725</version>
 									<destFileName>jetty-runner.jar</destFileName>
 								</artifactItem>
 							</artifactItems>
