@@ -5,6 +5,8 @@
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
 
+	<distributable/>
+
 	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>com.github.hoverruan.weiboclient4j.demo.LoginServlet</servlet-class>
