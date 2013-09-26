@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="weiboDemo">
 <head>
+	<meta charset="UTF-8">
 	<title>Demo for weiboclient4j</title>
 	<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">
 	<script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
