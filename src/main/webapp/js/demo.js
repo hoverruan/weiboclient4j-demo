@@ -2,6 +2,7 @@ var weiboDemoModule = angular.module('weiboDemo', [], function ($routeProvider) 
   $routeProvider.
     when('/', {controller: SettingCtrl, templateUrl: 'setting.html'}).
     when('/main', {controller: MainCtrl, templateUrl: 'main.html'}).
+    when('/timeline', {controller: TimelineCtrl, templateUrl: 'timeline.html'}).
     otherwise({redirectTo: '/'});
 });
 
@@ -23,7 +24,7 @@ function SettingCtrl($scope, $rootScope) {
 }
 
 function MainCtrl($scope, $http, $rootScope) {
-  $scope.doInit = function () {
+  $scope.fetchBasicInfo = function () {
     showMenu($rootScope);
 
     $http({
@@ -36,6 +37,26 @@ function MainCtrl($scope, $http, $rootScope) {
         $scope.uid = user['id'];
         $scope.screenName = user['screen_name'];
         $scope.profileImageUrl = user['profile_image_url'];
+      });
+  };
+}
+
+function TimelineCtrl($scope, $http, $rootScope) {
+  $scope.fetchHomeTimeline = function () {
+    showMenu($rootScope);
+
+    $http({
+      method: 'GET',
+      url: '/api/timeline/home'
+    }).success(function (timeline) {
+        $scope.totalNumber = timeline['total_number'];
+        $scope.nextCursor = timeline['next_cursor'];
+        $scope.statuses = timeline['statuses'];
+
+        angular.forEach($scope.statuses, function (status) {
+          var retweet = status['retweeted_status'];
+          status.isRetweet = !!retweet;
+        });
       });
   };
 }

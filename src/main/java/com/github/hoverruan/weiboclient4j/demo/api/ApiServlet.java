@@ -1,6 +1,7 @@
 package com.github.hoverruan.weiboclient4j.demo.api;
 
 import com.github.hoverruan.weiboclient4j.demo.DemoConstants;
+import weiboclient4j.WeiboClient;
 import weiboclient4j.WeiboClientException;
 import static weiboclient4j.utils.JsonUtils.writeObjectAsString;
 
@@ -39,5 +40,11 @@ public abstract class ApiServlet extends HttpServlet implements DemoConstants {
         PrintWriter out = resp.getWriter();
         out.println(writeObjectAsString(obj));
         out.flush();
+    }
+
+    protected WeiboClient getWeiboClient(HttpSession session) {
+        String accessToken = (String) session.getAttribute(ACCESS_TOKEN);
+
+        return new WeiboClient(accessToken);
     }
 }
