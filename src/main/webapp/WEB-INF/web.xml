@@ -27,6 +27,11 @@
 		<servlet-class>com.github.hoverruan.weiboclient4j.demo.api.HomeTimelineApiServlet</servlet-class>
 	</servlet>
 
+	<servlet>
+		<servlet-name>LogoutApiServlet</servlet-name>
+		<servlet-class>com.github.hoverruan.weiboclient4j.demo.api.LogoutApiServlet</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/login</url-pattern>
@@ -45,5 +50,10 @@
 	<servlet-mapping>
 		<servlet-name>HomeTimelineApi</servlet-name>
 		<url-pattern>/api/timeline/home</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LogoutApiServlet</servlet-name>
+		<url-pattern>/api/logout</url-pattern>
 	</servlet-mapping>
 </web-app>

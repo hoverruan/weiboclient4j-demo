@@ -70,7 +70,7 @@ function TimelineCtrl($scope, $http, $rootScope) {
   };
 }
 
-weiboDemoModule.controller('MenuCtrl', function ($scope, $location) {
+weiboDemoModule.controller('MenuCtrl', function ($scope, $location, $http) {
   $scope.displayMenu = false;
 
   $scope.$on(hideMenuEvent, function () {
@@ -85,5 +85,14 @@ weiboDemoModule.controller('MenuCtrl', function ($scope, $location) {
     hideMenu($scope);
 
     $location.path('/');
+  };
+
+  $scope.logout = function () {
+    $http({
+      method: 'GET',
+      url: '/api/logout'
+    }).success(function () {
+        $location.path('/');
+      });
   };
 });

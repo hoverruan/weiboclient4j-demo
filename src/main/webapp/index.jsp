@@ -27,6 +27,8 @@
 			<ul class="dropdown-menu" role="menu">
 				<li><a href="#/main">Access Token</a></li>
 				<li><a href="#/timeline">Home Timeline</a></li>
+				<li class="divider"></li>
+				<li><a href ng-click="logout()">Logout</a></li>
 			</ul>
 		</div>
 		<a href class="btn btn-warning" ng-show="displayMenu" ng-click="getNewAccessToken()">Get New Access Token</a>
