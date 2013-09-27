@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="http://cdn.staticfile.org/twitter-bootstrap/3.0.0-rc2/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="http://cdn.staticfile.org/angular.js/1.1.5/angular.min.js"></script>
 	<script type="text/javascript" src="http://cdn.staticfile.org/angular.js/1.1.5/angular-resource.min.js"></script>
+	<script type="text/javascript" src="js/ui-bootstrap-0.6.0.min.js"></script>
 	<script type="text/javascript" src="js/demo.js"></script>
 </head>
 <body>

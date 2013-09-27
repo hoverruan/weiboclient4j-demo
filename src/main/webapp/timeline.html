@@ -29,7 +29,15 @@
         </table>
     </div>
     <div class="col-lg-4">
-        <form class="form-horizontal" role="form">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" ng-model="pageSize" btn-radio="20"
+                    ng-change="fetchHomeTimeline()">20</button>
+            <button type="button" class="btn btn-primary" ng-model="pageSize" btn-radio="50"
+                    ng-change="fetchHomeTimeline()">50</button>
+            <button type="button" class="btn btn-primary" ng-model="pageSize" btn-radio="100"
+                    ng-change="fetchHomeTimeline()">100</button>
+        </div>
+        <form class="form-horizontal top-buffer" role="form">
             <div class="form-group">
                 <label class="col-lg-4 control-label">Total Number:</label>
 

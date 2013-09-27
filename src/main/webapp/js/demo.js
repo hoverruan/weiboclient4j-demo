@@ -1,4 +1,4 @@
-var weiboDemoModule = angular.module('weiboDemo', [], function ($routeProvider) {
+var weiboDemoModule = angular.module('weiboDemo', ['ui.bootstrap'], function ($routeProvider) {
   $routeProvider.
     when('/', {controller: SettingCtrl, templateUrl: 'setting.html'}).
     when('/main', {controller: MainCtrl, templateUrl: 'main.html'}).
@@ -42,12 +42,17 @@ function MainCtrl($scope, $http, $rootScope) {
 }
 
 function TimelineCtrl($scope, $http, $rootScope) {
+  $scope.pageSize = 20;
+
   $scope.fetchHomeTimeline = function () {
     showMenu($rootScope);
 
     $http({
       method: 'GET',
-      url: '/api/timeline/home'
+      url: '/api/timeline/home',
+      params: {
+        pageSize: $scope.pageSize
+      }
     }).success(function (timeline) {
         $scope.totalNumber = timeline['total_number'];
         $scope.nextCursor = timeline['next_cursor'];
@@ -58,6 +63,10 @@ function TimelineCtrl($scope, $http, $rootScope) {
           status.isRetweet = !!retweet;
         });
       });
+  };
+
+  $scope.fireSomething = function () {
+    console.log('pageSize: ' + $scope.pageSize);
   };
 }
 

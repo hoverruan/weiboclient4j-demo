@@ -47,4 +47,14 @@ public abstract class ApiServlet extends HttpServlet implements DemoConstants {
 
         return new WeiboClient(accessToken);
     }
+
+    protected int getIntParam(HttpServletRequest req, String name, int defaultValue) {
+        String paramValue = req.getParameter(name);
+
+        try {
+            return Integer.parseInt(paramValue);
+        } catch (NumberFormatException e) {
+            return defaultValue;
+        }
+    }
 }
